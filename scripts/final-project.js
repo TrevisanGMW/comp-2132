@@ -69,9 +69,12 @@ function capitalizeFirstLetter(string) {
 
 // Rotating Animation
 function startHangmanImageAnimation(){
+
   hangmanImageAngle += 1;
   $hangmanImage.rotate(hangmanImageAngle);
-
+  if (hangmanImageAngle === 360) {
+	hangmanImageAngle = 0;
+  }
   if (isAnimated === true) {
     setTimeout(function(){ //throttle requestAnimationFrame to fps variable
       productAnimation = requestAnimationFrame(startHangmanImageAnimation);
